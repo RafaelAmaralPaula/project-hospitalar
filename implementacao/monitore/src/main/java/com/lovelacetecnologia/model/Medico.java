@@ -2,32 +2,25 @@ package com.lovelacetecnologia.model;
 
 public class Medico extends Pessoa {
 
-	private String especialidade;
-	private StatusHospital status;
+	private Especialidade especialidade;
+	private boolean ativo;
 
-	public Medico() {
-	}
-
-	public Medico(String especialidade, StatusHospital status) {
-		super();
-		this.especialidade = especialidade;
-		this.status = status;
-	}
-
-	public String getEspecialidade() {
+	public Especialidade getEspecialidade() {
 		return especialidade;
 	}
 
-	public void setEspecialidade(String especialidade) {
+	public void setEspecialidade(Especialidade  especialidade) {
 		this.especialidade = especialidade;
 	}
 
-	public StatusHospital getStatus() {
-		return status;
+	public boolean isAtivo() {
+		return ativo;
 	}
 
-	public void setStatus(StatusHospital status) {
-		this.status = status;
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
+	
+	
 
 }

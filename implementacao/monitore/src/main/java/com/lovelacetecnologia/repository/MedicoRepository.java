@@ -1,19 +1,27 @@
 package com.lovelacetecnologia.repository;
 
-import java.util.List;
-
 import com.lovelacetecnologia.model.Medico;
 
-public interface IMedico {
+public class MedicoRepository {
 	
-	public void criar(Medico medico);
+	public void criar(Medico medico) {
+		
+	}
 	
-	public void alterar(Medico medico);
+	public void alterar(Medico medico) {
+		
+	}
 	
-	public void excluir(int codigoMedico);
+	public void excluir(int codigoMedico) {
+		
+	}
 	
-	public List<Medico> listarTodos();
+//	public List<Medico> listarTodos(String nome){
+//		
+//	}
 	
-	public Medico buscarPeloCodigo(int codigoMedico);
+//	public Medico buscarPeloCodigo(int codigoMedico) {
+//		
+//	}
 	
 }

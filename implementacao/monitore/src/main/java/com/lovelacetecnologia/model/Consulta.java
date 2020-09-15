@@ -4,26 +4,16 @@ import java.time.LocalDateTime;
 
 public class Consulta {
 
-	private Long codigo;
+	private Integer codigo;
 	private Medico medico;
 	private Paciente paciente;
-	private LocalDateTime dataEHora;
+	private LocalDateTime dataHora;
 
-	public Consulta() {
-	}
-
-	public Consulta(Long codigo, Medico medico, Paciente paciente, LocalDateTime dataEHora) {
-		this.codigo = codigo;
-		this.medico = medico;
-		this.paciente = paciente;
-		this.dataEHora = dataEHora;
-	}
-
-	public Long getCodigo() {
+	public Integer  getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Long codigo) {
+	public void setCodigo(Integer  codigo) {
 		this.codigo = codigo;
 	}
 
@@ -43,12 +33,37 @@ public class Consulta {
 		this.paciente = paciente;
 	}
 
-	public LocalDateTime getDataEHora() {
-		return dataEHora;
+	public LocalDateTime getDataHora() {
+		return dataHora;
 	}
 
-	public void setDataEHora(LocalDateTime dataEHora) {
-		this.dataEHora = dataEHora;
+	public void setDataEHora(LocalDateTime dataHora) {
+		this.dataHora = dataHora;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Consulta other = (Consulta) obj;
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		return true;
 	}
 
 }
