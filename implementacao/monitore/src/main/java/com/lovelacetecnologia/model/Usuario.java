@@ -3,8 +3,8 @@ package com.lovelacetecnologia.model;
 public class Usuario extends Pessoa {
 
 	private String nome;
-	private String password;
-	private boolean ativo;
+	private String senha;
+	//private boolean ativo;
 	
 	public String getNome() {
 		return nome;
@@ -14,20 +14,20 @@ public class Usuario extends Pessoa {
 		this.nome = nome;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
-	public boolean isAtivo() {
-		return ativo;
-	}
-
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
-	}
+//	public boolean isAtivo() {
+//		return ativo;
+//	}
+//
+//	public void setAtivo(boolean ativo) {
+//		this.ativo = ativo;
+//	}
 
 }
