@@ -20,58 +20,69 @@ public class MonitoreApplication {
 
 		UsuarioRepository repository = new UsuarioRepository();
 
-		
-		// INSERE NOVO USUÁRIO NA BASE DADOS
 		Usuario user = new Usuario();
-		user.setNome("Gleyson Sampaio");
-		user.setSenha("89214");
-		
+		user.setNome("teste");
+		user.setUsername("admin");
+		user.setSenha("22142");
+		user.setAtivo(true);
 		repository.criar(user);
 		System.out.println("Criado ! ");
+
+//		
+//		// INSERE NOVO USUÁRIO NA BASE DADOS
+//		Usuario user = new Usuario();
+//		user.setNome("Rafael");
+//		user.setUsername("admin");
+//		user.setSenha("89214");
+//		user.setAtivo(true);
+//		
 		
+
 		System.out.println("--------------------------------------------");
 		System.out.println("\n\n\n\n");
-		
 
 		// ALTERA OS DADOS DE UM USUÁRIO EXISTENTE
-		
-		Usuario userAlterar = new Usuario();
-		userAlterar.setCodigo(2);
-		userAlterar.setNome("Normandes Junior");
-		userAlterar.setSenha("124525");
-		
-		repository.alterar(userAlterar);
-		System.out.println("Alterado com sucesso !");
 
+//		Usuario userAlterar = new Usuario();
+//		userAlterar.setCodigo(10);
+//		userAlterar.setNome("João do silva");
+//		userAlterar.setUsername("admin");
+//		userAlterar.setSenha("124525");
+//		userAlterar.setAtivo(false);
+//
+//		repository.alterar(userAlterar);
+//		System.out.println("Alterado com sucesso !");
+//
 		System.out.println("\n\n\n\n");
-		
+
 		// DELETA USUÁRIOS DA BASE DE DADOS
-		
+
+//		System.out.println("-------------------------------------");
+//		repository.excluir(5);
+//		System.out.println("Exluído");
+//
+//		System.out.println("\n\n\n\n");
+
+		// LISTA TODOS
+
 		System.out.println("-------------------------------------");
-		repository.excluir(1);
-		System.out.println("Exluído");
-		
-		System.out.println("\n\n\n\n");
-		
-		
-		//LISTA TODOS
-				
-		System.out.println("-------------------------------------");
-		
+
 		List<Usuario> listUser = repository.listarTodos();
 		System.out.println("Listando todos...");
-		
+
 		for (Usuario usuario : listUser) {
 			System.out.println("Código -> " + usuario.getCodigo());
 			System.out.println("Nome -> " + usuario.getNome());
+			System.out.println("Username -> " + usuario.getUsername());
 			System.out.println("Senha -> " + usuario.getSenha());
+			System.out.println("Status -> " + usuario.isAtivo());
 			System.out.println("---------------------------------- ");
 		}
-		
+
 		System.out.println("\n\n\n\n");
 
 		// BUSCA PELO CÓDIGO
-		
+
 		Usuario usuarioEncontrado = repository.buscarPeloCodigo(1);
 		System.out.println("Listando ...");
 
@@ -83,6 +94,16 @@ public class MonitoreApplication {
 
 			System.out.println("Usuário não encontrado ou não existe informe código novamente !");
 		}
+
+		// BUSCA PELO CÓDIGO
+		Usuario usuario2 = new Usuario();
+		usuario2.setNome("teste");
+		usuario2.setUsername("admin");
+		usuario2.setSenha("22142");
+		usuario2.setAtivo(true);
+		
+		repository.criar(usuario2);
+		
 
 	}
 
