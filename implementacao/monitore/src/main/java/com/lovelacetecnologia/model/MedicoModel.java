@@ -1,15 +1,15 @@
 package com.lovelacetecnologia.model;
 
-public class Medico extends Pessoa {
+public class MedicoModel extends PessoaModel {
 
-	private Especialidade especialidade;
+	private EspecialidadeModel especialidade;
 	private boolean ativo;
 
-	public Especialidade getEspecialidade() {
+	public EspecialidadeModel getEspecialidade() {
 		return especialidade;
 	}
 
-	public void setEspecialidade(Especialidade  especialidade) {
+	public void setEspecialidade(EspecialidadeModel  especialidade) {
 		this.especialidade = especialidade;
 	}
 

@@ -1,14 +1,14 @@
 package com.lovelacetecnologia.repository;
 
-import com.lovelacetecnologia.model.Medico;
+import com.lovelacetecnologia.model.MedicoModel;
 
 public class MedicoRepository {
 	
-	public void criar(Medico medico) {
+	public void criar(MedicoModel medico) {
 		
 	}
 	
-	public void alterar(Medico medico) {
+	public void alterar(MedicoModel medico) {
 		
 	}
 	

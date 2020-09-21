@@ -1,10 +1,15 @@
 package com.lovelacetecnologia.model;
 
-public class Especialidade {
+import java.time.LocalDate;
+
+public abstract class PessoaModel {
 
 	private Integer codigo;
 	private String nome;
-	
+	private LocalDate dataNascimento;
+	private String email;
+	private String endereco;
+
 	public Integer getCodigo() {
 		return codigo;
 	}
@@ -21,12 +26,35 @@ public class Especialidade {
 		this.nome = nome;
 	}
 
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
 
@@ -38,16 +66,11 @@ public class Especialidade {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Especialidade other = (Especialidade) obj;
+		PessoaModel other = (PessoaModel) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
 		} else if (!codigo.equals(other.codigo))
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
 			return false;
 		return true;
 	}

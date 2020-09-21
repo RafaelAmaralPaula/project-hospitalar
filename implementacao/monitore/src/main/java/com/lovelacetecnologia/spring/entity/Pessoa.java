@@ -1,13 +1,23 @@
-package com.lovelacetecnologia.model;
+package com.lovelacetecnologia.spring.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public abstract class Pessoa {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
+	
 	private String nome;
+	
 	private LocalDate dataNascimento;
+	
 	private String email;
+	
 	private String endereco;
 
 	public Integer getCodigo() {

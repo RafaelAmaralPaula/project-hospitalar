@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.lovelacetecnologia.model.Usuario;
+import com.lovelacetecnologia.model.UsuarioModel;
 import com.lovelacetecnologia.util.ModuloConexao;
 
 public class UsuarioRepository {
@@ -18,7 +18,7 @@ public class UsuarioRepository {
 		this.connection = ModuloConexao.conector();
 	}
 
-	public void criar(Usuario usuario) {
+	public void criar(UsuarioModel usuario) {
 
 		try {
 			
@@ -47,7 +47,7 @@ public class UsuarioRepository {
 		}
 	}
 
-	public void alterar(Usuario usuario) {
+	public void alterar(UsuarioModel usuario) {
 
 		try {
 
@@ -89,9 +89,9 @@ public class UsuarioRepository {
 
 	}
 
-	public List<Usuario> listarTodos() {
+	public List<UsuarioModel> listarTodos() {
 
-		List<Usuario> list = new ArrayList<>();
+		List<UsuarioModel> list = new ArrayList<>();
 
 		try {
 
@@ -103,7 +103,7 @@ public class UsuarioRepository {
 
 			while (rs.next()) {
 
-				Usuario usuario = new Usuario();
+				UsuarioModel usuario = new UsuarioModel();
 
 				usuario.setCodigo(rs.getInt("codigo"));
 				usuario.setNome(rs.getString("nome"));
@@ -122,27 +122,23 @@ public class UsuarioRepository {
 		return list;
 	}
 
-	public boolean listDeUsername(Usuario usuario) {
+	public boolean listDeUsername(UsuarioModel usuario) {
 
 		boolean existe = false;
 
 		try {
 
-			String sql = "SELECT username FROM usuario";
+			String sql = "SELECT username FROM usuario WHERE username = ?";
 
 			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, usuario.getUsername());
 
 			ResultSet rs = statement.executeQuery();
 
 			while (rs.next()) {
-				
-				Usuario user = new Usuario();
-				
-				user.setUsername(rs.getString("username"));
-				
-				if (user.getUsername().equals(usuario.getUsername())) {
-					existe = true;
-				}
+				existe=true;
+				break;
 			}
 
 		} catch (Exception e) {
@@ -152,9 +148,9 @@ public class UsuarioRepository {
 		return existe;
 	}
 
-	public Usuario buscarPeloCodigo(int codigoUsuario) {
+	public UsuarioModel buscarPeloCodigo(int codigoUsuario) {
 
-		Usuario usuario = new Usuario();
+		UsuarioModel usuario = new UsuarioModel();
 
 		try {
 			Connection connection = ModuloConexao.conector();

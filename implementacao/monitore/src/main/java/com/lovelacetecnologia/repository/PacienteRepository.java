@@ -1,14 +1,14 @@
 package com.lovelacetecnologia.repository;
 
-import com.lovelacetecnologia.model.Paciente;
+import com.lovelacetecnologia.model.PacienteModel;
 
 public class PacienteRepository {
 
-	public void incluir(Paciente paciente) {
+	public void incluir(PacienteModel paciente) {
 		
 	}
 
-	public void alterar(Paciente paciente) {
+	public void alterar(PacienteModel paciente) {
 		
 	}
 

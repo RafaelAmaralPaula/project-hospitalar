@@ -1,6 +1,6 @@
 package com.lovelacetecnologia.model;
 
-public class Paciente extends Pessoa {
+public class PacienteModel extends PessoaModel {
 	private boolean ativo;
 
 	public boolean isAtivo() {

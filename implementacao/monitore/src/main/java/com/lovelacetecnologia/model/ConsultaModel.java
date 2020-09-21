@@ -2,11 +2,11 @@ package com.lovelacetecnologia.model;
 
 import java.time.LocalDateTime;
 
-public class Consulta {
+public class ConsultaModel {
 
 	private Integer codigo;
-	private Medico medico;
-	private Paciente paciente;
+	private MedicoModel medico;
+	private PacienteModel paciente;
 	private LocalDateTime dataHora;
 
 	public Integer  getCodigo() {
@@ -17,19 +17,19 @@ public class Consulta {
 		this.codigo = codigo;
 	}
 
-	public Medico getMedico() {
+	public MedicoModel getMedico() {
 		return medico;
 	}
 
-	public void setMedico(Medico medico) {
+	public void setMedico(MedicoModel medico) {
 		this.medico = medico;
 	}
 
-	public Paciente getPaciente() {
+	public PacienteModel getPaciente() {
 		return paciente;
 	}
 
-	public void setPaciente(Paciente paciente) {
+	public void setPaciente(PacienteModel paciente) {
 		this.paciente = paciente;
 	}
 
@@ -57,7 +57,7 @@ public class Consulta {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Consulta other = (Consulta) obj;
+		ConsultaModel other = (ConsultaModel) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;

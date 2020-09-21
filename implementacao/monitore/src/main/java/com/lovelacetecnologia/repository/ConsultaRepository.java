@@ -1,14 +1,14 @@
 package com.lovelacetecnologia.repository;
 
-import com.lovelacetecnologia.model.Consulta;
+import com.lovelacetecnologia.model.ConsultaModel;
 
 public class ConsultaRepository {
 	
-	public void criar(Consulta consulta) {
+	public void criar(ConsultaModel consulta) {
 		
 	}
 	
-	public void alterar(Consulta consulta) {
+	public void alterar(ConsultaModel consulta) {
 		
 	}
 	
