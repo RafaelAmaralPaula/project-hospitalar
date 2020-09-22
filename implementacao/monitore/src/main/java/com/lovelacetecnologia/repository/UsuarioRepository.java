@@ -22,7 +22,7 @@ public class UsuarioRepository {
 
 		try {
 			
-			boolean usernameExiste = listDeUsername(usuario);
+			boolean usernameExiste = existeUsername(usuario);
 			
 			if(usernameExiste) {
 				System.out.println("Usuário já cadastrado com esse username tente outro");
@@ -122,7 +122,7 @@ public class UsuarioRepository {
 		return list;
 	}
 
-	public boolean listDeUsername(UsuarioModel usuario) {
+	public boolean existeUsername(UsuarioModel usuario) {
 
 		boolean existe = false;
 

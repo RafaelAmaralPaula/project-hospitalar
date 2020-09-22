@@ -6,5 +6,6 @@ import com.lovelacetecnologia.spring.entity.Usuario;
 
 
 public interface UsuarioRepository extends JpaRepository<Usuario,Integer> {
-
+	
+	
 }

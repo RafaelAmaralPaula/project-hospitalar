@@ -26,9 +26,19 @@ public class Usuario {
 	}
 
 	public Usuario(String nome, String username, String senha) {
+		this();
 		this.nome = nome;
 		this.username = username;
 		this.senha = senha;
+	}
+	
+	public Usuario(Integer codigo , String nome, String username, String senha) {
+		this();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.username = username;
+		this.senha = senha;
+		
 	}
 
 	public Integer getCodigo() {
