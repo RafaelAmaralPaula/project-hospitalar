@@ -2,10 +2,18 @@ package com.lovelacetecnologia.spring.entity;
 
 import java.time.LocalDate;
 
-import com.lovelacetecnologia.model.EspecialidadeModel;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class Medico {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
 
 	private String nome;
@@ -16,11 +24,25 @@ public class Medico {
 
 	private String endereco;
 
-	private EspecialidadeModel especialidade;
+	@ManyToOne
+	@JoinColumn(name = "especialidade_codigo")
+	private Especialidade especialidade;
 
 	private boolean ativo;
 
-	public Medico() {}
+	public Medico() {
+	}
+
+	public Medico(String nome, LocalDate dataNascimento, String email, String endereco, Especialidade especialidade,
+			boolean ativo) {
+		super();
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
+		this.email = email;
+		this.endereco = endereco;
+		this.especialidade = especialidade;
+		this.ativo = ativo;
+	}
 
 	public Integer getCodigo() {
 		return codigo;
@@ -62,11 +84,11 @@ public class Medico {
 		this.endereco = endereco;
 	}
 
-	public EspecialidadeModel getEspecialidade() {
+	public Especialidade getEspecialidade() {
 		return especialidade;
 	}
 
-	public void setEspecialidade(EspecialidadeModel especialidade) {
+	public void setEspecialidade(Especialidade especialidade) {
 		this.especialidade = especialidade;
 	}
 

@@ -1,4 +1,4 @@
-package com.lovelacetecnologia.standard;
+package com.lovelacetecnologia.spring.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +10,7 @@ import com.lovelacetecnologia.spring.entity.Usuario;
 import com.lovelacetecnologia.spring.repository.UsuarioRepository;
 
 @Component
-public class TrabalhandoBancoDadosSpring {
+public class UsuarioService {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;

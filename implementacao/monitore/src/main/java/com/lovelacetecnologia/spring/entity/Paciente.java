@@ -2,8 +2,17 @@ package com.lovelacetecnologia.spring.entity;
 
 import java.time.LocalDate;
 
-public class Paciente {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+
+@Entity
+public class Paciente {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
 
 	private String nome;
