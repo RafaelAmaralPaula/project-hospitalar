@@ -38,7 +38,7 @@ public class UsuarioService {
 		
 	}
 	
-	public List<Usuario> usuarios(){
+	public List<Usuario> listarTodos(){
 		return usuarioRepository.findAll();
 	}
 	

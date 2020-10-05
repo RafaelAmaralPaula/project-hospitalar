@@ -1,25 +1,24 @@
 package com.lovelacetecnologia.spring.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "tb_especialidade")
 public class Especialidade {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer codigo;
 
+	@Column(length = 50 , nullable = false)
 	private String nome;
 
-	public Especialidade() {
-	}
-
-	public Especialidade(String nome) {
-		this.nome = nome;
-	}
+	public Especialidade() {}
 
 	public Integer getCodigo() {
 		return codigo;

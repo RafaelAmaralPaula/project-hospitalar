@@ -2,14 +2,17 @@ package com.lovelacetecnologia.spring.entity;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "tb_consulta")
 public class Consulta {
 
 	@Id
@@ -17,13 +20,14 @@ public class Consulta {
 	private Integer codigo;
 
 	@ManyToOne
-	@JoinColumn(name= "medico_codigo")
+	@JoinColumn(name= "medico_codigo" , nullable = false)
 	private Medico medico;
 	
 	@ManyToOne
-	@JoinColumn(name = "paciente_codigo")
+	@JoinColumn(name = "paciente_codigo" , nullable = false)
 	private Paciente paciente;
 	
+	@Column(name = "data_hora" , nullable = false)
 	private LocalDateTime dataHora;
 
 	public Consulta() {}

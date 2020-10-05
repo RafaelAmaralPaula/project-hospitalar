@@ -1,24 +1,30 @@
 package com.lovelacetecnologia.spring.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "tb_usuario")
 public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
 
+	@Column(length = 50, nullable = false)
 	private String nome;
 
+	@Column(length = 20, nullable = false)
 	private String username;
 
+	@Column(length = 15, nullable = false)
 	private String senha;
 
+	@Column(nullable = false)
 	private boolean ativo;
 
 	public Usuario() {
@@ -30,15 +36,6 @@ public class Usuario {
 		this.nome = nome;
 		this.username = username;
 		this.senha = senha;
-	}
-	
-	public Usuario(Integer codigo , String nome, String username, String senha) {
-		this();
-		this.codigo = codigo;
-		this.nome = nome;
-		this.username = username;
-		this.senha = senha;
-		
 	}
 
 	public Integer getCodigo() {
