@@ -1,7 +1,9 @@
 package com.lovelacetecnologia.spring.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,17 +23,22 @@ public class Consulta {
 	private Integer codigo;
 
 	@ManyToOne
-	@JoinColumn(name= "medico_codigo" , nullable = false)
+	@JoinColumn(name = "medico_codigo", nullable = false)
 	private Medico medico;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "paciente_codigo" , nullable = false)
+	@JoinColumn(name = "paciente_codigo", nullable = false)
 	private Paciente paciente;
-	
-	@Column(name = "data_hora" , nullable = false)
+
+	@Column(name = "data_hora", nullable = false)
 	private LocalDateTime dataHora;
 
-	public Consulta() {}
+	@OneToMany(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "consulta_medicamento", nullable = false)
+	private List<ConsultaMedicamento> itens;
+
+	public Consulta() {
+	}
 
 	public Integer getCodigo() {
 		return codigo;
@@ -62,6 +70,14 @@ public class Consulta {
 
 	public void setDataEHora(LocalDateTime dataHora) {
 		this.dataHora = dataHora;
+	}
+
+	public List<ConsultaMedicamento> getConsultaMedicamento() {
+		return itens;
+	}
+
+	public void setConsultaMedicamento(List<ConsultaMedicamento> consultaMedicamento) {
+		this.itens = consultaMedicamento;
 	}
 
 	@Override

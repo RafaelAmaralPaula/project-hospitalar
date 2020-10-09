@@ -3,6 +3,8 @@ package com.lovelacetecnologia;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.boot.SpringApplication;
@@ -10,12 +12,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.lovelacetecnologia.spring.entity.Consulta;
+import com.lovelacetecnologia.spring.entity.ConsultaMedicamento;
 import com.lovelacetecnologia.spring.entity.Especialidade;
+import com.lovelacetecnologia.spring.entity.Medicamento;
 import com.lovelacetecnologia.spring.entity.Medico;
 import com.lovelacetecnologia.spring.entity.Paciente;
 import com.lovelacetecnologia.spring.entity.Usuario;
+import com.lovelacetecnologia.spring.service.ConsultaMedicamentoService;
 import com.lovelacetecnologia.spring.service.ConsultaService;
 import com.lovelacetecnologia.spring.service.EspecialidadeService;
+import com.lovelacetecnologia.spring.service.MedicamentoService;
 import com.lovelacetecnologia.spring.service.MedicoService;
 import com.lovelacetecnologia.spring.service.PacienteService;
 import com.lovelacetecnologia.spring.service.UsuarioService;
@@ -25,93 +31,111 @@ public class MonitoreApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext run = SpringApplication.run(MonitoreApplication.class, args);
-
-		UsuarioService usuarioService = run.getBean(UsuarioService.class);
-
+//
+		//UsuarioService usuarioService = run.getBean(UsuarioService.class);
+//
 		// INSERIR USUARIO
-		 usuarioService.salvar(criandoUsuario());
-
-		// ALTERAR USUARIO
-		 usuarioService.alterar(criandoUsuarioParaAlterar());
-
-		// LISTAR TODOS USUARIOS
-		imprimirTodosUsuarios(usuarioService.listarTodos());
-
-		// DELETAR
-		 usuarioService.deletar(1);
-
-		// BUSCAR PELO CODIGO
-		imprimirUsuario(usuarioService.buscarPeloCodigo(3));
-
-		EspecialidadeService especialidadeService = run.getBean(EspecialidadeService.class);
-
-		// SALVAR ESPECIALIDADE
-		 especialidadeService.salvar(criandoEspecialidade());
-
-		// ALTERAR ESPECIALIDADE
-		 especialidadeService.alterar(criandoEspecialidadeParaAlterar());
-
-		// DELETAR ESPECIALIDADE
-		 especialidadeService.deletar(1);
-
-		// LISTAR TODAS ESPECIALIDADE
-		imprimirTodasEspecialidades(especialidadeService.listarTodasEspecialidades());
-
-		// BUSCAR ESPECILIDADE PELO CÓDIGO
-		imprimirEspecialidade(especialidadeService.buscarPeloCodigo(3));
-
+		//usuarioService.salvar(criandoUsuario());
+//
+//		// ALTERAR USUARIO
+//		 usuarioService.alterar(criandoUsuarioParaAlterar());
+//
+//		// LISTAR TODOS USUARIOS
+//		imprimirTodosUsuarios(usuarioService.listarTodos());
+//
+//		// DELETAR
+//		 usuarioService.deletar(1);
+//
+//		// BUSCAR PELO CODIGO
+//		imprimirUsuario(usuarioService.buscarPeloCodigo(3));
+//
+		//EspecialidadeService especialidadeService = run.getBean(EspecialidadeService.class);
+//
+//		// SALVAR ESPECIALIDADE
+		//especialidadeService.salvar(criandoEspecialidade());
+//
+//		// ALTERAR ESPECIALIDADE
+//		 especialidadeService.alterar(criandoEspecialidadeParaAlterar());
+//
+//		// DELETAR ESPECIALIDADE
+//		 especialidadeService.deletar(1);
+//
+//		// LISTAR TODAS ESPECIALIDADE
+//		imprimirTodasEspecialidades(especialidadeService.listarTodasEspecialidades());
+//
+//		// BUSCAR ESPECILIDADE PELO CÓDIGO
+//		imprimirEspecialidade(especialidadeService.buscarPeloCodigo(3));
+//
 		MedicoService medicoService = run.getBean(MedicoService.class);
-
-		// SALVAR MEDICO
-		 medicoService.salvar(criandoMedico(especialidadeService.buscarPeloCodigo(3)));
-
-		// ALTERAR MÉDICO
-		 medicoService.alterar(criandoMedicoParaAlterar(especialidadeService.buscarPeloCodigo(3)));
-
-		// DELETAR MEDICO
-		 medicoService.deletar(4);
-
-		// LISTAR TODOS MEDICOS
-		imprimirTodosMedicos(medicoService.listarTodosMedicos());
-
-		// BUSCAR MEDICO PELO ID
-		imprimirMedico(medicoService.buscarPeloCodigo(2));
-
+//
+//		// SALVAR MEDICO
+		//medicoService.salvar(criandoMedico(especialidadeService.buscarPeloCodigo(1)));
+//
+//		// ALTERAR MÉDICO
+//		 medicoService.alterar(criandoMedicoParaAlterar(especialidadeService.buscarPeloCodigo(3)));
+//
+//		// DELETAR MEDICO
+//		 medicoService.deletar(4);
+//
+//		// LISTAR TODOS MEDICOS
+//		imprimirTodosMedicos(medicoService.listarTodosMedicos());
+//
+//		// BUSCAR MEDICO PELO ID
+//		imprimirMedico(medicoService.buscarPeloCodigo(2));
+//
 		PacienteService pacienteService = run.getBean(PacienteService.class);
+//
+//		// SALVAR PACIENTE
+		//pacienteService.salvar(criandoPaciente());
+//
+//		// ALTERAR UM PACIENTE
+//		 pacienteService.alterar(criandoPacienteParaAlterar());
+//
+//		// DELETANDO UM PACIENTE
+//		 pacienteService.deletar(1);
+//
+//		// LISTAR TODOS PACIENTE
+//		imprimirTodosPacientes(pacienteService.listarTodosPacientes());
+//
+//		// BUSCAR PACIENTE PELO ID
+//		 imprimirPaciente(pacienteService.buscarPeloCodigo(4));
+//
 
-		// SALVAR PACIENTE
-		 pacienteService.salvar(criandoPaciente());
-
-		// ALTERAR UM PACIENTE
-		 pacienteService.alterar(criandoPacienteParaAlterar());
-
-		// DELETANDO UM PACIENTE
-		 pacienteService.deletar(1);
-
-		// LISTAR TODOS PACIENTE
-		imprimirTodosPacientes(pacienteService.listarTodosPacientes());
-
-		// BUSCAR PACIENTE PELO ID
-		 imprimirPaciente(pacienteService.buscarPeloCodigo(4));
+		MedicamentoService medicamento = run.getBean(MedicamentoService.class);
+		medicamento.salvar(criandoMedicamento());
+		medicamento.salvar(criandoMedicamento());
+		
+		Medicamento mendicamentoEncontrado1 = medicamento.buscarPeloCodigo(5);
+		Medicamento mendicamentoEncontrado2 = medicamento.buscarPeloCodigo(6);
 
 		ConsultaService consultaService = run.getBean(ConsultaService.class);
-		Paciente paciente = pacienteService.buscarPeloCodigo(2);
-		Medico medico = medicoService.buscarPeloCodigo(3);
+		Paciente paciente = pacienteService.buscarPeloCodigo(1);
+		Medico medico = medicoService.buscarPeloCodigo(1);
+		
+		ConsultaMedicamento consultaMedicamento1 = new ConsultaMedicamento();
+		consultaMedicamento1.setMedicamento(mendicamentoEncontrado1);
+		
+		ConsultaMedicamento consultaMedicamento2 = new ConsultaMedicamento();
+		consultaMedicamento2.setMedicamento(mendicamentoEncontrado2);
+		
+		List<ConsultaMedicamento> consultaMedicamentos = Arrays.asList(consultaMedicamento1 ,
+				consultaMedicamento2);
 
-		// SALVANDO CONSULTA
-		consultaService.salvar(criandoConsulta(medico, paciente));
-
-		// ALTERANDO CONSULTA
-		 consultaService.alterar(criandoConsultaAlterar(medico, paciente));
-
-		// DELETANDO UMA CONSULTA
-		 consultaService.deletar(1);
-
-		// LISTANDO TODAS CONSULTA
-		 imprimirTodasConsultas(consultaService.listarTodasConsultas());
-
-		// BUSCANDO CONSULTA PELO ID
-		imprimirConsulta(consultaService.buscarPeloCodigo(2));
+//
+//		SALVANDO CONSULTA
+		consultaService.salvar(criandoConsulta(medico, paciente, consultaMedicamentos));
+//
+//		// ALTERANDO CONSULTA
+//		 consultaService.alterar(criandoConsultaAlterar(medico, paciente));
+//
+//		// DELETANDO UMA CONSULTA
+//		 consultaService.deletar(1);
+//
+//		// LISTANDO TODAS CONSULTA
+//		 imprimirTodasConsultas(consultaService.listarTodasConsultas());
+//
+//		// BUSCANDO CONSULTA PELO ID
+//		imprimirConsulta(consultaService.buscarPeloCodigo(2));
 
 	}
 
@@ -287,11 +311,13 @@ public class MonitoreApplication {
 	}
 
 	// CONSULTA
-	static Consulta criandoConsulta(Medico medico, Paciente paciente) {
+	static Consulta criandoConsulta(Medico medico, Paciente paciente, List<ConsultaMedicamento> consultaMedicamentos) {
 		Consulta consulta = new Consulta();
 		consulta.setDataEHora(LocalDateTime.of(2020, Month.OCTOBER, 6, 15, 30));
 		consulta.setMedico(medico);
 		consulta.setPaciente(paciente);
+		consulta.setConsultaMedicamento(consultaMedicamentos);
+
 
 		return consulta;
 	}
@@ -322,8 +348,20 @@ public class MonitoreApplication {
 		System.out.println("Paciente -> " + consulta.getPaciente().getNome());
 		System.out.println("Médico -> " + consulta.getMedico().getNome());
 		System.out.println("Especialidade-> " + consulta.getMedico().getEspecialidade().getNome());
-		
+
 		System.out.println("\n\n\n\n\n\n\n");
+	}
+
+	static Medicamento criandoMedicamento() {
+		Medicamento medicamento = new Medicamento();
+		medicamento.setNome("Teste");
+		medicamento.setDosagem(10);
+		medicamento.setHoraTomarMedicamento(LocalDateTime.of(2020, Month.APRIL,
+				2,13, 00));
+		medicamento.setQuantidadeEstoque(10);
+
+		return medicamento;
+
 	}
 
 }

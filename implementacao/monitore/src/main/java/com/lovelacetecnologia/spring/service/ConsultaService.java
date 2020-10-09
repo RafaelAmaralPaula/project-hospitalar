@@ -29,6 +29,9 @@ public class ConsultaService {
 			consultaSave.setMedico(consulta.getMedico());
 			consultaSave.setPaciente(consulta.getPaciente());
 			consultaSave.setDataEHora(consulta.getDataHora());
+			consultaSave.setConsultaMedicamento(consulta.getConsultaMedicamento());
+			
+			
 			
 			consultaRepository.save(consultaSave);
 			

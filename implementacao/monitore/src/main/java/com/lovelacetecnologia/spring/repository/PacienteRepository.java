@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lovelacetecnologia.spring.entity.Paciente;
 
-@Repository
+
 public interface PacienteRepository extends JpaRepository<Paciente, Integer>{
 
 }
