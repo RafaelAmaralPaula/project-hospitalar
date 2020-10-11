@@ -1,6 +1,5 @@
 package com.lovelacetecnologia.spring.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,11 +17,30 @@ public class ConsultaMedicamento {
 	private Integer codigo;
 
 	@ManyToOne
-	@JoinColumn(name = "medicamento_codigo", nullable = false)
+	@JoinColumn(name = "id_medicamento", nullable = false)
 	private Medicamento medicamento;
 
-	@Column(name = "quantidade_medicamento_receitado", nullable = false)
-	private Integer quantidadeMedicamentoReceitado;
+	@ManyToOne
+	@JoinColumn(name = "id_consulta", nullable = false)
+	private Consulta consulta;
+
+	private String periodicidade;
+
+	public Consulta getConsulta() {
+		return consulta;
+	}
+
+	void setConsulta(Consulta consulta) {
+		this.consulta = consulta;
+	}
+
+	public String getPeriodicidade() {
+		return periodicidade;
+	}
+
+	public void setPeriodicidade(String periodicidade) {
+		this.periodicidade = periodicidade;
+	}
 
 	public Integer getCodigo() {
 		return codigo;
@@ -38,14 +56,6 @@ public class ConsultaMedicamento {
 
 	public void setMedicamento(Medicamento medicamento) {
 		this.medicamento = medicamento;
-	}
-
-	public Integer getQuantidadeMedicamentoReceitado() {
-		return quantidadeMedicamentoReceitado;
-	}
-
-	public void setQuantidadeMedicamentoReceitado(Integer quantidadeMedicamentoReceitado) {
-		this.quantidadeMedicamentoReceitado = quantidadeMedicamentoReceitado;
 	}
 
 	@Override

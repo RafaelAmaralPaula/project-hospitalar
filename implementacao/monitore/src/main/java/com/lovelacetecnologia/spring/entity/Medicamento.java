@@ -1,7 +1,5 @@
 package com.lovelacetecnologia.spring.entity;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +11,9 @@ import javax.persistence.Table;
 @Table(name = "tb_medicamento")
 public class Medicamento {
 
+//	public static final String CB1 = "987";
+//	public static final String CB2 = "654";
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
@@ -20,21 +21,30 @@ public class Medicamento {
 	@Column(length = 70, nullable = false)
 	private String nome;
 
-	@Column(nullable = false)
-	private Integer dosagem;
+	@Column(length = 10, nullable = false)
+	private String codigoBarras;
 
-	@Column(name = "quantidade_estoque", nullable = false)
+	private String dosagem;
+
+	@Column(name = "qtd_estoque", nullable = false)
 	private int quantidadeEstoque;
 
-	@Column(name = "hora_tomar_medicamento")
-	private LocalDateTime horaTomarMedicamento;
+	private String periodidicidade;
 
-	public Integer getId() {
+	public String getCodigoBarras() {
+		return codigoBarras;
+	}
+
+	public void setCodigoBarras(String codigoBarras) {
+		this.codigoBarras = codigoBarras;
+	}
+
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setId(Integer id) {
-		this.codigo = id;
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getNome() {
@@ -45,11 +55,11 @@ public class Medicamento {
 		this.nome = nome;
 	}
 
-	public Integer getDosagem() {
+	public String getDosagem() {
 		return dosagem;
 	}
 
-	public void setDosagem(Integer dosagem) {
+	public void setDosagem(String dosagem) {
 		this.dosagem = dosagem;
 	}
 
@@ -61,12 +71,12 @@ public class Medicamento {
 		this.quantidadeEstoque = quantidadeEstoque;
 	}
 
-	public LocalDateTime getHoraTomarMedicamento() {
-		return horaTomarMedicamento;
+	public String getPeriodidicidade() {
+		return periodidicidade;
 	}
 
-	public void setHoraTomarMedicamento(LocalDateTime horaTomarMedicamento) {
-		this.horaTomarMedicamento = horaTomarMedicamento;
+	public void setPeriodidicidade(String periodidicidade) {
+		this.periodidicidade = periodidicidade;
 	}
 
 	@Override

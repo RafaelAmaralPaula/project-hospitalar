@@ -15,10 +15,11 @@ public class Especialidade {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer codigo;
 
-	@Column(length = 50 , nullable = false)
+	@Column(length = 50, nullable = false)
 	private String nome;
 
-	public Especialidade() {}
+	public Especialidade() {
+	}
 
 	public Integer getCodigo() {
 		return codigo;

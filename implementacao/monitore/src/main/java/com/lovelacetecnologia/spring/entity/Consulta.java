@@ -1,6 +1,7 @@
 package com.lovelacetecnologia.spring.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -23,19 +24,18 @@ public class Consulta {
 	private Integer codigo;
 
 	@ManyToOne
-	@JoinColumn(name = "medico_codigo", nullable = false)
+	@JoinColumn(name = "id_medico", nullable = false)
 	private Medico medico;
 
 	@ManyToOne
-	@JoinColumn(name = "paciente_codigo", nullable = false)
+	@JoinColumn(name = "id_paciente", nullable = false)
 	private Paciente paciente;
 
-	@Column(name = "data_hora", nullable = false)
+	@Column(name = "dt_hora", nullable = false)
 	private LocalDateTime dataHora;
 
-	@OneToMany(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "consulta_medicamento", nullable = false)
-	private List<ConsultaMedicamento> itens;
+	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "consulta")
+	private List<ConsultaMedicamento> medicamentos = new ArrayList<ConsultaMedicamento>();
 
 	public Consulta() {
 	}
@@ -43,7 +43,7 @@ public class Consulta {
 	public Integer getCodigo() {
 		return codigo;
 	}
-
+	
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
@@ -72,14 +72,19 @@ public class Consulta {
 		this.dataHora = dataHora;
 	}
 
-	public List<ConsultaMedicamento> getConsultaMedicamento() {
-		return itens;
+	public List<ConsultaMedicamento> getMedicamentos() {
+		return medicamentos;
 	}
-
-	public void setConsultaMedicamento(List<ConsultaMedicamento> consultaMedicamento) {
-		this.itens = consultaMedicamento;
+	
+	public void addMedicamento(Medicamento medicamento) {
+		ConsultaMedicamento item = new ConsultaMedicamento();
+		item.setMedicamento(medicamento);
+		item.setPeriodicidade(medicamento.getPeriodidicidade());
+		item.setConsulta(this);
+		
+		medicamentos.add(item);
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

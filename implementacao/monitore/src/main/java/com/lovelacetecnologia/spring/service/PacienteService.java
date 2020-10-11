@@ -25,7 +25,7 @@ public class PacienteService {
 		if (pacienteEncontrada.isPresent()) {
 			Paciente pacienteAlterado = pacienteEncontrada.get();
 
-			pacienteAlterado.setCodigo(paciente.getCodigo());
+			//pacienteAlterado.setCodigo(paciente.getCodigo());
 			pacienteAlterado.setNome(paciente.getNome());
 			pacienteAlterado.setEmail(paciente.getEmail());
 			pacienteAlterado.setEndereco(paciente.getEndereco());

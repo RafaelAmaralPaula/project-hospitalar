@@ -9,28 +9,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "tb_paciente")
 public class Paciente {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
 
-	@Column(length = 50 , nullable = false)
+	@Column(length = 50, nullable = false)
 	private String nome;
 
-	@Column(name = "data_nascimento" , length = 50 , nullable = false)
+	@Column(length = 11, nullable = false)
+	private String cpf;
+
+	@Column(name = "dt_nascimento", length = 50, nullable = false)
 	private LocalDate dataNascimento;
 
-	@Column(length = 50 , nullable = false)
+	@Column(length = 50, nullable = false)
 	private String email;
 
-	@Column(length = 80 , nullable = false)
+	@Column(length = 80, nullable = false)
 	private String endereco;
 
-	public Paciente() {}
+	public Paciente() {
+	}
 
 	public Integer getCodigo() {
 		return codigo;
@@ -46,6 +49,14 @@ public class Paciente {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public LocalDate getDataNascimento() {

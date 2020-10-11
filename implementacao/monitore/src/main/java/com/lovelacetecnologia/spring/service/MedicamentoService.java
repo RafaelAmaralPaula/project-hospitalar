@@ -20,21 +20,20 @@ public class MedicamentoService {
 	}
 
 	public void alterar(Medicamento medicamento) {
-		Optional<Medicamento> medicamentoEncontrado = 
-				       medicamentoRepository.findById(medicamento.getId());
-
-		if (medicamentoEncontrado.isPresent()) {
-			Medicamento medicamentoAlterar =  medicamentoEncontrado.get();
-			medicamentoAlterar.setNome(medicamento.getNome());
-			medicamentoAlterar.setDosagem(medicamento.getDosagem());
-			medicamentoAlterar.setHoraTomarMedicamento(medicamento.getHoraTomarMedicamento());
-			medicamentoAlterar.setQuantidadeEstoque(medicamento.getQuantidadeEstoque());
-			
-			medicamentoRepository.save(medicamentoAlterar);
-
-		} else {
-			System.out.println("Especialidade não encontrada !!!");
-		}
+//	//	Optional<Medicamento> medicamentoEncontrado = medicamentoRepository.findById(medicamento.getId());
+//
+//		if (medicamentoEncontrado.isPresent()) {
+//			Medicamento medicamentoAlterar =  medicamentoEncontrado.get();
+//			medicamentoAlterar.setNome(medicamento.getNome());
+//			medicamentoAlterar.setDosagem(medicamento.getDosagem());
+//			//medicamentoAlterar.setHoraTomarMedicamento(medicamento.getHoraTomarMedicamento());
+//			//medicamentoAlterar.setQuantidadeEstoque(medicamento.getQuantidadeEstoque());
+//			
+//			medicamentoRepository.save(medicamentoAlterar);
+//
+//		} else {
+//			System.out.println("Especialidade não encontrada !!!");
+//		}
 
 	}
 

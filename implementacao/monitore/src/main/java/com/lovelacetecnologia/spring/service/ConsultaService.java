@@ -25,11 +25,11 @@ public class ConsultaService {
 		if(consultaEncontrada.isPresent()) {
 			Consulta consultaSave = consultaEncontrada.get();
 			
-			consultaSave.setCodigo(consulta.getCodigo());
+			//consultaSave.setCodigo(consulta.getCodigo());
 			consultaSave.setMedico(consulta.getMedico());
 			consultaSave.setPaciente(consulta.getPaciente());
 			consultaSave.setDataEHora(consulta.getDataHora());
-			consultaSave.setConsultaMedicamento(consulta.getConsultaMedicamento());
+		//	consultaSave.setConsultaMedicamento(consulta.getConsultaMedicamento());
 			
 			
 			

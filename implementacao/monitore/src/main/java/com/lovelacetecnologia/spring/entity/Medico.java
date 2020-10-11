@@ -22,7 +22,10 @@ public class Medico {
 	@Column(length = 50, nullable = false)
 	private String nome;
 
-	@Column(name = "data_nascimento", nullable = false)
+	@Column(length = 10, nullable = false)
+	private String crm; // Conselho Regional de Medicina
+
+	@Column(name = "dt_nascimento", nullable = false)
 	private LocalDate dataNascimento;
 
 	@Column(length = 50, nullable = false)
@@ -32,7 +35,7 @@ public class Medico {
 	private String endereco;
 
 	@ManyToOne
-	@JoinColumn(name = "especialidade_codigo" , nullable = false)
+	@JoinColumn(name = "id_especialidade", nullable = false)
 	private Especialidade especialidade;
 
 	@Column(nullable = false)
@@ -52,6 +55,14 @@ public class Medico {
 
 	public String getNome() {
 		return nome;
+	}
+
+	public String getCrm() {
+		return crm;
+	}
+
+	public void setCrm(String crm) {
+		this.crm = crm;
 	}
 
 	public void setNome(String nome) {
