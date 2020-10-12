@@ -1,5 +1,6 @@
 package com.lovelacetecnologia.spring.entity;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,18 +25,10 @@ public class Usuario {
 	@Column(length = 15, nullable = false)
 	private String senha;
 
-	@Column(nullable = false)
 	private boolean ativo;
 
 	public Usuario() {
 		ativo = true;
-	}
-
-	public Usuario(String nome, String username, String senha) {
-		this();
-		this.nome = nome;
-		this.username = username;
-		this.senha = senha;
 	}
 
 	public Integer getCodigo() {

@@ -22,7 +22,7 @@ public class Medico {
 	@Column(length = 50, nullable = false)
 	private String nome;
 
-	@Column(length = 10, nullable = false)
+	@Column(length = 20, nullable = false)
 	private String crm; // Conselho Regional de Medicina
 
 	@Column(name = "dt_nascimento", nullable = false)

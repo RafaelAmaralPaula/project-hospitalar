@@ -20,10 +20,10 @@ public class Paciente {
 	@Column(length = 50, nullable = false)
 	private String nome;
 
-	@Column(length = 11, nullable = false)
+	@Column(length = 15, nullable = false)
 	private String cpf;
 
-	@Column(name = "dt_nascimento", length = 50, nullable = false)
+	@Column(name = "dt_nascimento", nullable = false)
 	private LocalDate dataNascimento;
 
 	@Column(length = 50, nullable = false)
