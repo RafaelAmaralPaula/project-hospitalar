@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 @Entity
 @Table(name = "tb_usuario")
 public class Usuario {
@@ -16,12 +19,15 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
 
+	@JsonInclude(Include.NON_NULL)
 	@Column(length = 50, nullable = false)
 	private String nome;
 
+	@JsonInclude(Include.NON_NULL)
 	@Column(length = 20, nullable = false)
 	private String username;
 
+	@JsonInclude(Include.NON_NULL)
 	@Column(length = 15, nullable = false)
 	private String senha;
 

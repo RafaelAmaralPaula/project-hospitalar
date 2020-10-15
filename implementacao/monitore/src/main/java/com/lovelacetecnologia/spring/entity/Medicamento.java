@@ -7,6 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.sun.istack.NotNull;
+
 @Entity
 @Table(name = "tb_medicamento")
 public class Medicamento {
@@ -24,11 +28,14 @@ public class Medicamento {
 	@Column(length = 10, nullable = false)
 	private String codigoBarras;
 
+	@JsonInclude(Include.NON_NULL)
 	private String dosagem;
 
+	@JsonInclude(Include.NON_NULL)
 	@Column(name = "qtd_estoque", nullable = false)
 	private int quantidadeEstoque;
 
+	@JsonInclude(Include.NON_NULL)
 	private String periodidicidade;
 
 	public String getCodigoBarras() {

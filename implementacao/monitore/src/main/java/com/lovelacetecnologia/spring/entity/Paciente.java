@@ -1,6 +1,6 @@
 package com.lovelacetecnologia.spring.entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Entity
 @Table(name = "tb_paciente")
@@ -17,18 +21,24 @@ public class Paciente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
 
+	@JsonInclude(Include.NON_NULL)
 	@Column(length = 50, nullable = false)
 	private String nome;
 
+	@JsonInclude(Include.NON_NULL)
 	@Column(length = 15, nullable = false)
 	private String cpf;
 
+	@JsonInclude(Include.NON_NULL)
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "dt_nascimento", nullable = false)
-	private LocalDate dataNascimento;
+	private Date dataNascimento;
 
+	@JsonInclude(Include.NON_NULL)
 	@Column(length = 50, nullable = false)
 	private String email;
 
+	@JsonInclude(Include.NON_NULL)
 	@Column(length = 80, nullable = false)
 	private String endereco;
 
@@ -59,11 +69,11 @@ public class Paciente {
 		this.cpf = cpf;
 	}
 
-	public LocalDate getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

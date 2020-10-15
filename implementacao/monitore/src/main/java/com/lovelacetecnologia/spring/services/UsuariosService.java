@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.lovelacetecnologia.spring.entity.Usuario;
 import com.lovelacetecnologia.spring.repository.UsuarioRepository;
-import com.lovelacetecnologia.spring.services.exceptions.UsuarioJaCadastradoNoSistemaException;
+import com.lovelacetecnologia.spring.services.exceptions.UsuarioExistenteException;
 import com.lovelacetecnologia.spring.services.exceptions.UsuarioNaoEncontradoException;
 
 @Service
@@ -25,7 +25,7 @@ public class UsuariosService {
 		Usuario find = usuarioRepository.findByUsername(usuario.getUsername());
 
 		if (find != null) {
-			throw new UsuarioJaCadastradoNoSistemaException("Usuário já está cadastrado");
+			throw new UsuarioExistenteException("Usuário já está cadastrado");
 		}
 
 		usuarioRepository.save(usuario);

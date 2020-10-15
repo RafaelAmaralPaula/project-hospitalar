@@ -1,7 +1,6 @@
 package com.lovelacetecnologia.spring.aplicacao;
 
-import java.time.LocalDate;
-import java.time.Month;
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +17,11 @@ public class SpringAplicacaoPaciente {
 
 	public void execute() {
 		cadastrarPaciente();
-//		alterar();
-//		deletar();
-//		listarTodos();
-//		bucasrPeloCodigo();
-//		bucasrPeloCpf();
+		alterar();
+		deletar();
+		listarTodos();
+		bucasrPeloCodigo();
+		bucasrPeloCpf();
 	}
 
 	private void cadastrarPaciente() {
@@ -31,7 +30,7 @@ public class SpringAplicacaoPaciente {
 		paciente.setCpf("146-787-454-07");
 		paciente.setEmail("contato@jose.com");
 		paciente.setEndereco("Estrada nova espernça Nº 01 - RJ-Valença");
-		paciente.setDataNascimento(LocalDate.of(1972, Month.APRIL, 9));
+		paciente.setDataNascimento(Date.valueOf("26/07/1972"));
 
 		Paciente find = pacienteRepository.findByCpf(paciente.getCpf());
 
@@ -53,7 +52,7 @@ public class SpringAplicacaoPaciente {
 		paciente.setCpf("135-787-89-07");
 		paciente.setEmail("contato@jose.com");
 		paciente.setEndereco("Estrada nova espernça Nº 01 - RJ-Valença");
-		paciente.setDataNascimento(LocalDate.of(1972, Month.APRIL, 9));
+		paciente.setDataNascimento(Date.valueOf("30/08/1990"));
 
 		Paciente find = pacienteRepository.findByCodigo(paciente.getCodigo());
 

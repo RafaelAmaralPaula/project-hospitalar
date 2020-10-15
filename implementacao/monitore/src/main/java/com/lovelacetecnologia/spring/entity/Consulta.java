@@ -1,7 +1,7 @@
 package com.lovelacetecnologia.spring.entity;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,6 +15,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 @Entity
 @Table(name = "tb_consulta")
 public class Consulta {
@@ -23,17 +27,22 @@ public class Consulta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
 
+	@JsonInclude(Include.NON_NULL)
 	@ManyToOne
 	@JoinColumn(name = "id_medico", nullable = false)
 	private Medico medico;
 
+	@JsonInclude(Include.NON_NULL)
 	@ManyToOne
 	@JoinColumn(name = "id_paciente", nullable = false)
 	private Paciente paciente;
 
+	@JsonInclude(Include.NON_NULL)
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "dt_hora", nullable = false)
-	private LocalDateTime dataHora;
+	private Date dataHora;
 
+	@JsonInclude(Include.NON_EMPTY)
 	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "consulta")
 	private List<ConsultaMedicamento> medicamentos = new ArrayList<ConsultaMedicamento>();
 
@@ -64,11 +73,11 @@ public class Consulta {
 		this.paciente = paciente;
 	}
 
-	public LocalDateTime getDataHora() {
+	public Date getDataHora() {
 		return dataHora;
 	}
 
-	public void setDataEHora(LocalDateTime dataHora) {
+	public void setDataEHora(Date dataHora) {
 		this.dataHora = dataHora;
 	}
 

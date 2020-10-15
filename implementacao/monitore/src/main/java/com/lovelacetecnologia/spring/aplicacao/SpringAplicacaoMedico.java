@@ -1,7 +1,6 @@
 package com.lovelacetecnologia.spring.aplicacao;
 
-import java.time.LocalDate;
-import java.time.Month;
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +40,7 @@ public class SpringAplicacaoMedico {
 		medico.setCrm("47383979579");
 		medico.setEmail("contato@ricardo.com");
 		medico.setEndereco("Rua coronel Nº355 SP-Capital");
-		medico.setDataNascimento(LocalDate.of(1990, Month.DECEMBER, 20));
+		medico.setDataNascimento(Date.valueOf("01/12/2001"));
 		medico.setEspecialidade(findEspecialidade);
 		
 		Medico findMedico = medicoRepository.findByCrm(medico.getCrm());
@@ -66,7 +65,7 @@ public class SpringAplicacaoMedico {
 		medico.setCrm("47383979579");
 		medico.setEmail("contato@ricardo.com");
 		medico.setEndereco("Rua coronel Nº355 SP-Capital");
-		medico.setDataNascimento(LocalDate.of(1990, Month.DECEMBER, 20));
+		medico.setDataNascimento(Date.valueOf("12/05/1878"));
 		medico.setEspecialidade(findEspecialidade);
 		
 		Medico findMedico = medicoRepository.findByCodigo(medico.getCodigo());
